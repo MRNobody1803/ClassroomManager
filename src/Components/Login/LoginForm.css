@@ -1,0 +1,110 @@
+.wrapper {
+    width: 420px;
+    background: rgba(255, 255, 255, 0.11) ;
+    border:  2px solid #cfcfcf ;
+    backdrop-filter: blur(30px);
+    color: #ffffff;
+    border-radius: 45px ;
+    padding: 30px 40px ;
+}
+
+.wrapper h1 {
+    font-size: 32px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative ;
+    width: 100% ;
+    height: 50px ;
+    margin: 30px 0 ;
+}
+
+.input-box input {
+    width: 100% ;
+    height: 100% ;
+    background: transparent ;
+    border: none ;
+    outline:  none ;
+    border: 2px solid rgb(255, 255, 255, .2);
+    border-radius: 40px ;
+    font-size: 16px ;
+    color : #fff ;
+    padding: 20px 45px 20px 20px ;
+}
+
+.input-box input::placeholder {
+    color: #fff ;
+}
+
+.input-box .icon {
+    position: absolute ;
+    right: 20px ;
+    top: 50% ;
+    transform: translateY(-50%);
+    font-size: 16px ;
+}
+
+.wrapper .remember-forgot {
+    display: flex ;
+    justify-content:  space-between ;
+    font-size: 14.5px ;
+    margin: 15px 0px 15px ;
+ }
+
+ .wrapper .btn {
+    display: flex ;
+    justify-content: space-between ;
+ }
+
+ .wrapper .btn button {
+    border-radius:  15px ;
+    width: 70%  ;
+    height: 40px ;
+    font-size:  16px ;
+    font-weight: 600 ;
+    font-family: "Poppins", "jost" , sans-serif ;
+    background-color: rgb(54, 50, 94);
+    color: #fff ;
+    border: none ;
+    outline: none ;
+    margin:  10px ;
+ }
+
+ .wrapper .btn button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(54, 50, 94) ;
+    font-weight: 800 ;
+ }
+
+ .wrapper select {
+    width: 100% ;
+    height: 100% ;
+    background: transparent ;
+    border: none ;
+    outline:  none ;
+    border: 2px solid rgb(255, 255, 255, .2);
+    border-radius: 40px  0 0 40px ;
+    font-size: 16px ;
+    color : #ffffff ;
+    padding: 13px 15px ;
+ }
+ 
+ .wrapper select::after {
+    background: transparent ;
+ }
+
+ .wrapper select option {
+    color: rgb(54, 50, 94) ;
+    width: 50% ;
+ }
+
+ .remember-forgot a {
+    color: #fff ;
+    text-decoration: none ;
+ }
+
+ .remember-forgot a:hover {
+    text-decoration: underline ;
+ }
