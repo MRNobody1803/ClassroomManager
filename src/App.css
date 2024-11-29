@@ -11,9 +11,10 @@
     align-items: center;
     margin: 100px 0px;
 }
-.home {
+.homeApp {
     height: 150px;
     color: white ;
-    font-weight: 400 ;
+    font-weight: 200 ;
     font-family: "poppin";
 }
+
