@@ -1,27 +1,18 @@
 import './App.css'
-import Home from './Components/Login/Home';
-import LoginForm from './Components/Login/LoginForm';
-import Footer from './Components/SharedComponents/Footer';
-import HeaderMain from './Components/SharedComponents/HeaderMain';
-
-
+import HeaderMain from './Components/SharedComponents/HeaderMain'
+import Footer from './Components/SharedComponents/Footer'
+import AdmPage from './Components/Pages/AdmPage';
+import MainPage from './Components/Pages/MainPage'
+import Users from './Components/SharedComponents/Users'
+import PageTest from './Components/Pages/PageTest';
+import { BrowserRouter as Router } from 'react-router-dom';
 function App() {
-
-  return (
-    <div className='page'>
-      <div className='homeApp'>
-        <HeaderMain/>
-      </div>
-      <div className="crd">
-        <Home/>
-      </div>
-      <div>
-        <Footer/>
-      </div>
-      
-    </div>
-    
+ 
+  return (  
+    <Router>
+      <PageTest/>
+    </Router>
   );
 }
 
-export default App
+export default App;

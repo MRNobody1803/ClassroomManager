@@ -2,11 +2,12 @@ import React from 'react'
 import './LoginForm.css'
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { MdOutlinePassword } from "react-icons/md";
-import { GoTriangleDown } from "react-icons/go";
+
 
 const LoginForm = () => {
   return (
-    <div className="wrapper">
+    <div className="form">
+        <div className="wrapper">
         <form action="">
             <h1>Login</h1>
             <div className="input-box">
@@ -24,7 +25,6 @@ const LoginForm = () => {
                     <option value="rspClass">Responsable des classes</option>
                     <option value="chef">Chef de filliére</option>
                 </select>
-                {/* <GoTriangleDown className='icon' /> */}
             </div>
             <div className="remember-forgot">
                 <label htmlFor=""><input type="checkbox" /> Remember me</label>
@@ -38,6 +38,8 @@ const LoginForm = () => {
             
         </form>
     </div>
+    </div>
+    
   )
 }
 
