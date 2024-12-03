@@ -1,0 +1,46 @@
+.cards {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    color: white ;
+}
+
+.card {
+    min-width: 400px ;
+    max-width: 600px ;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    background-color: #ffffff29 ;
+}
+
+.profile {
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #000000;
+}
+
+.profile .img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+    overflow: hidden;
+}
+
+.profile .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile .infos {
+    flex-grow: 1;
+}
+
+.said {
+    padding: 15px;
+    background-color: #ffffff29;
+}

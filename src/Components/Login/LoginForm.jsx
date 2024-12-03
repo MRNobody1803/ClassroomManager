@@ -2,43 +2,54 @@ import React from 'react'
 import './LoginForm.css'
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { MdOutlinePassword } from "react-icons/md";
+import HeaderMain from '../SharedComponents/HeaderMain';
+import Footer from '../SharedComponents/Footer';
 
 
 const LoginForm = () => {
   return (
-    <div className="form">
-        <div className="wrapper">
-        <form action="">
-            <h1>Login</h1>
-            <div className="input-box">
-                <input type="email" placeholder="Educational Email" required />
-                <MdOutlineAlternateEmail className='icon' />
+    <div className="loginpage">
+        <div>
+            <HeaderMain/>
+        </div>
+        <div className="form">
+                <div className="wrapper">
+                <form action="">
+                    <h1>Login</h1>
+                    <div className="input-box">
+                        <input type="email" placeholder="Educational Email" required />
+                        <MdOutlineAlternateEmail className='icon' />
+                    </div>
+                    <div className="input-box">
+                        <input type="password" placeholder='Password' required  />
+                        <MdOutlinePassword className='icon'/>
+                    </div>
+                    <div className="select">
+                        <select name="" id="TypeUser">
+                            <option value="adm">Administration</option>
+                            <option value="prof">Professeur</option>
+                            <option value="rspClass">Responsable des classes</option>
+                            <option value="chef">Chef de filliére</option>
+                        </select>
+                    </div>
+                    <div className="remember-forgot">
+                        <label htmlFor=""><input type="checkbox" /> Remember me</label>
+                        <a href="#">Forgot password</a>
+                    </div>
+                    <div className="btn">
+                        <button type="submit">Submit</button>
+                        <button type="submit">Cancel</button>
+                    </div>
+                    
+                    
+                </form>
             </div>
-            <div className="input-box">
-                <input type="password" placeholder='Password' required  />
-                <MdOutlinePassword className='icon'/>
             </div>
-            <div className="select">
-                <select name="" id="TypeUser">
-                    <option value="adm">Administration</option>
-                    <option value="prof">Professeur</option>
-                    <option value="rspClass">Responsable des classes</option>
-                    <option value="chef">Chef de filliére</option>
-                </select>
+            <div>
+                <Footer/>
             </div>
-            <div className="remember-forgot">
-                <label htmlFor=""><input type="checkbox" /> Remember me</label>
-                <a href="#">Forgot password</a>
-            </div>
-            <div className="btn">
-                <button type="submit">Submit</button>
-                <button type="submit">Cancel</button>
-            </div>
-            
-            
-        </form>
-    </div>
-    </div>
+        </div>
+    
     
   )
 }

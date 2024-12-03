@@ -1,0 +1,78 @@
+.room {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .room .nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .room .nav ul li {
+    padding: 10px 10px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 5px 5px 0 0;
+    margin-right: 10px;
+    background-color: #f4f4f4;
+    transition: all 0.3s ease;
+  }
+  
+  
+  .room .nav ul li.active {
+    background-color: white;
+    border-color: #ddd;
+    border-bottom: none;
+    font-weight: bold;
+  }
+  
+  .room .tab-content {
+    border: 1px solid #ddd;
+    border-radius: 0 5px 5px 5px;
+    padding: 20px;
+    background-color: white;
+    margin-top: -1px;
+  }
+  
+  .room table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .room table th, table td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .room table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .room table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .room table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .room button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .room button:hover {
+    background-color: #0056b3;
+  }
+  

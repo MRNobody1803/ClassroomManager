@@ -1,0 +1,76 @@
+.sidebar {
+    min-height: 91vh;
+    display: inline-flex;
+    flex-direction: column ;
+    justify-content: space-between ;
+    background-color: rgb(211, 235, 255);
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.409) ;
+    margin-right: 5px;
+}
+
+.sidebar img {
+    padding-left: 5px ;
+    padding-right: 5px;
+}
+.sidebar .menu {
+    margin: 5px ;
+    width: 35px ;
+    cursor: pointer;
+    display: block ;
+    margin-left: 10px ;
+}
+
+.sidebar .actions {
+    width: 100% ;
+    margin-top:  10px ;
+    display: inline-flex ;
+    flex-direction: column ;
+    align-items: center ;
+    gap: 10px ;
+    padding: 10px 15px;
+    border-radius: 10px ;
+    
+
+}
+.sidebar .actions button {
+    width: 100% ;
+    padding: 2px;
+    background-color: transparent ;
+    border:  1px solid ;
+    font-size: 16px ;
+}
+
+.sidebar .actions button:hover {
+    background-color: white ;
+    
+}
+
+
+.sidebar .bottom-item {
+    display: flex ;
+    justify-content: space-between;
+    padding: 10px ;
+}
+
+.sidebar .bottom p {
+    font-size: 16px ;
+}
+.sidebar .bottom-item p{
+    margin:  0px 10px ;
+}
+.sidebar .actions .sidebar-link {
+    width: 100%;
+    padding: 5px;
+    background-color: transparent;
+    border: 1px solid;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit; /* Utilise la couleur par défaut du texte */
+    border-radius: 5px;
+}
+
+.sidebar .actions .sidebar-link:hover {
+    background-color: white;
+    color: black; /* Change la couleur du texte au survol */
+}

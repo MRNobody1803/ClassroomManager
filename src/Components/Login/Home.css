@@ -1,0 +1,34 @@
+.homepage {
+    height: 100vh ;
+    background: url('../../assets/Login.jpg') no-repeat ;
+    background-size: cover ;
+    background-position: center ;
+}
+.homemain{
+    margin-top: 50px ;
+}
+
+
+.welcome {
+
+    width: 100% ;
+    display: flex ;
+    justify-content: space-around ;
+    padding: 20px 100px ;
+    color: white ;
+
+}
+.welcome p {
+    font-weight: 200 ;
+}
+.descrp {
+    width: 50% ;
+}
+
+.card-org {
+
+    width: 100% ;
+    padding: 2% ;
+    display: flex ;
+    justify-content: center ;
+}
