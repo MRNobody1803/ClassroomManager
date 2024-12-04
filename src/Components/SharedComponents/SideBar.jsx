@@ -4,7 +4,7 @@ import './SideBar.css';
 import { assets } from '../../assets/assets';
 import svg from '../../assets/profile.svg';
 
-const SideBar = ({ buttonNames = [] }) => {
+const SideBar = ({ buttonNames = [] , profile }) => {
   const [extended, setExtended] = useState(true);
 
   return (
@@ -33,7 +33,7 @@ const SideBar = ({ buttonNames = [] }) => {
       <div className="bottom">
         <div className="bottom-item">
           <img src={svg} alt="profile" />
-          {extended && <p> ABDESSAMAD EL HACHAMI </p>}
+          {extended && <p> {profile} </p>}
         </div>
       </div>
     </div>

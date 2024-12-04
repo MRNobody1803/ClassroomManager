@@ -1,32 +1,40 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import SideBar from '../SharedComponents/SideBar';
 import HeaderAdm from '../SharedComponents/HeaderAdm';
 import DashBoard from '../SharedComponents/DashBoard';
 import './admPage.css';
 import Users from '../SharedComponents/Users';
-import { Routes, Route } from 'react-router-dom';
 import { Fields } from '../SharedComponents/Fields';
-import Room from '../SharedComponents/Room'
+import Room from '../SharedComponents/Room';
+import { useLocation } from 'react-router-dom';
 
 const AdmPage = () => {
+  // Récupérer location et user, assurer que user n'est jamais null ou undefined
+  const location = useLocation();
+  const user = location.state || {};  // Si location.state est null ou undefined, utiliser un objet vide
+
+  // Vérifier si le nom et prénom existent avant de les afficher
+  const userName = user.nom && user.prenom ? `${user.nom} ${user.prenom}` : 'Utilisateur';
+
   const buttonNames = [
-    { label: 'DashBoard', path: '/dashboard' },
-    { label: 'Users', path: '/users' },
-    { label: 'Fields', path: '/fields' },
-    { label: 'Reservations', path: '/room' },
+    { label: 'DashBoard', path: '/admPage/dashboard' },
+    { label: 'Users', path: '/admPage/users' },
+    { label: 'Fields', path: '/admPage/fields' },
+    { label: 'Reservations', path: '/admPage/room' },
   ];
 
   return (
     <div>
       <HeaderAdm />
       <main className="dashboards">
-        <SideBar buttonNames={buttonNames} />
+        <SideBar buttonNames={buttonNames} profile={userName} />
         <div className="content">
           <Routes>
-            <Route path="/users" element={<Users />} />
-            <Route path="/dashboard" element={<DashBoard />} />
-            <Route path="/fields" element={<Fields />} />
-            <Route path="/room" element={<Room />} />
+            <Route path="dashboard" element={<DashBoard />} />
+            <Route path="users" element={<Users />} />
+            <Route path="fields" element={<Fields />} />
+            <Route path="room" element={<Room />} />
           </Routes>
         </div>
       </main>
@@ -34,4 +42,4 @@ const AdmPage = () => {
   );
 };
 
-export default AdmPage ;
+export default AdmPage;
