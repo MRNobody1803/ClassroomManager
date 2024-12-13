@@ -9,6 +9,7 @@ import { Fields } from '../SharedComponents/Fields';
 import Room from '../SharedComponents/Room';
 import { useLocation } from 'react-router-dom';
 import { useUser } from '../SharedComponents/UserContext';
+import FieldsManagement from '../SharedComponents/FieldsManagement';
 
 
 const AdmPage = () => {
@@ -36,7 +37,7 @@ const AdmPage = () => {
           <Routes>
             <Route path="dashboard" element={<DashBoard />} />
             <Route path="users" element={<Users />} />
-            <Route path="fields" element={<Fields />} />
+            <Route path="fields" element={<FieldsManagement />} />
             <Route path="room" element={<Room />} />
           </Routes>
         </div>

@@ -14,16 +14,10 @@ import ScheduleManagement from './Components/Pages/ScheduleManagement';
 
 function App() {
   return (
-    <UserProvider>
-      <Router>
-          <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/login" element={<LoginForm />} />
-            <Route path="/admPage/*" element={<AdmPage />} />
-            <Route path="*" element={<MainPage />} />
-          </Routes>
-      </Router>
-    </UserProvider>
+    <Router>
+       <ProfPage/>
+    </Router>
+  
   );
 }
 
@@ -31,4 +25,13 @@ function App() {
 export default App;
 
 
-{/*    */}
+{/* <UserProvider>
+    <Router>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/admPage/*" element={<AdmPage />} />
+          <Route path="*" element={<MainPage />} />
+        </Routes>
+    </Router>
+  </UserProvider>  */}
