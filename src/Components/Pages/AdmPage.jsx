@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SideBar from '../SharedComponents/SideBar';
 import HeaderAdm from '../SharedComponents/HeaderAdm';
@@ -8,15 +8,18 @@ import Users from '../SharedComponents/Users';
 import { Fields } from '../SharedComponents/Fields';
 import Room from '../SharedComponents/Room';
 import { useLocation } from 'react-router-dom';
+import { useUser } from '../SharedComponents/UserContext';
+
 
 const AdmPage = () => {
-  // Récupérer location et user, assurer que user n'est jamais null ou undefined
-  const location = useLocation();
-  const user = location.state || {};  // Si location.state est null ou undefined, utiliser un objet vide
+  const { user } = useUser();
+
+  // Fallback if user is null
+  const userName = user?.nom && user?.prenom 
+    ? `${user.nom} ${user.prenom}` 
+    : 'Utilisateur';
 
   // Vérifier si le nom et prénom existent avant de les afficher
-  const userName = user.nom && user.prenom ? `${user.nom} ${user.prenom}` : 'Utilisateur';
-
   const buttonNames = [
     { label: 'DashBoard', path: '/admPage/dashboard' },
     { label: 'Users', path: '/admPage/users' },

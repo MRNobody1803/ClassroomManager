@@ -1,41 +1,84 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './Room.css';
 
 const Room = () => {
-  const [activeTab, setActiveTab] = useState('Block H'); // État pour l'onglet actif
+  const [activeTab, setActiveTab] = useState('Block H'); // State for the active tab
+  const [rooms, setRooms] = useState([]); // State for all rooms
+  const [loading, setLoading] = useState(true); // State for loading status
+  const [error, setError] = useState(null); // State for error handling
 
+  useEffect(() => {
+    const fetchRooms = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/Back-end-1.0-SNAPSHOT/api/salles');
+        setRooms(response.data); // Store the room data
+        setLoading(false); // Set loading to false once data is fetched
+      } catch (err) {
+        console.error('Error fetching rooms:', err);
+        setError('Failed to fetch rooms'); // Set error message in case of failure
+        setLoading(false);
+      }
+    };
+
+    fetchRooms(); // Call the function to fetch rooms on component mount
+  }, []);
+
+  // Group rooms by block
+  const groupedRooms = rooms.reduce((acc, room) => {
+    const block = room.nom.charAt(0); // Assume block is the first character of the room name
+    if (!acc[block]) {
+      acc[block] = [];
+    }
+    acc[block].push(room);
+    return acc;
+  }, {});
+
+  // Tabs for each block
   const tabs = [
-    {
-      label: 'Block H',
-      content: [
-        { room: 'H101', capacity: 30, status: 'Available' },
-        { room: 'H102', capacity: 25, status: 'Occupied' },
-      ],
-    },
-    {
-      label: 'Block F',
-      content: [
-        { room: 'F201', capacity: 40, status: 'Available' },
-        { room: 'F202', capacity: 35, status: 'Under Maintenance' },
-      ],
-    },
-    {
-      label: 'Block K',
-      content: [
-        { room: 'K301', capacity: 20, status: 'Available' },
-        { room: 'K302', capacity: 15, status: 'Occupied' },
-      ],
-    },
-    {
-      label: 'Amphi',
-      content: [
-        { room: 'A1', capacity: 100, status: 'Available' },
-        { room: 'A2', capacity: 150, status: 'Occupied' },
-      ],
-    },
+    { label: 'Block H', content: groupedRooms['H'] || [] },
+    { label: 'Block F', content: groupedRooms['F'] || [] },
+    { label: 'Block K', content: groupedRooms['K'] || [] },
+    { label: 'Amphi', content: groupedRooms['A'] || [] },
   ];
 
+  // Set the current tab based on the active tab
   const currentTab = tabs.find((tab) => tab.label === activeTab);
+
+  // Function to handle modifying room status
+  const handleModifyStatus = async (roomId) => {
+    try {
+      // Assuming you will toggle the status between 'AVAILABLE' and 'UNAVAILABLE'
+      const roomToModify = rooms.find((room) => room.id === roomId);
+      const newStatus = roomToModify.status === 'AVAILABLE' ? 'BLOCKED' : 'AVAILABLE';
+      
+      // Send the new status to the server (modify this URL according to your API)
+      await axios.put(`http://localhost:8080/Back-end-1.0-SNAPSHOT/api/salles/${roomId}`, {
+        ...roomToModify,
+        status: newStatus,
+      });
+      
+      // Update the local state after successful modification
+      setRooms((prevRooms) =>
+        prevRooms.map((room) =>
+          room.id === roomId ? { ...room, status: newStatus } : room
+        )
+      );
+    } catch (err) {
+      console.error('Error modifying room status:', err);
+      setError('Failed to modify room status');
+    }
+  };
+
+  // Render loading state
+  if (loading) {
+    return <div>Loading rooms...</div>;
+  }
+
+  // Render error state
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <div className="room">
@@ -58,22 +101,20 @@ const Room = () => {
             <tr>
               <th>Room</th>
               <th>Capacity</th>
+              <th>Type</th>
               <th>Status</th>
               <th>Modify Status</th>
             </tr>
           </thead>
           <tbody>
-            {currentTab.content.map((row, index) => (
-              <tr key={index}>
-                <td>{row.room}</td>
-                <td>{row.capacity}</td>
-                <td>{row.status}</td>
+            {currentTab.content.map((room) => (
+              <tr key={room.id}>
+                <td>{room.nom}</td>
+                <td>{room.capacite}</td>
+                <td>{room.typeSalle}</td>
+                <td>{room.status}</td>
                 <td>
-                  <button
-                    onClick={() =>
-                      alert(`Modify status of ${row.room} in ${activeTab}`)
-                    }
-                  >
+                  <button onClick={() => handleModifyStatus(room.id)}>
                     Modify
                   </button>
                 </td>

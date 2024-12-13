@@ -6,6 +6,7 @@ import HeaderMain from '../SharedComponents/HeaderMain';
 import Footer from '../SharedComponents/Footer';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';  // Pour la redirection après authentification
+import { useUser } from '../SharedComponents/UserContext';
 
 
 
@@ -15,6 +16,7 @@ const LoginForm = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();  // Hook de navigation pour redirection
   
+    const { setUser } = useUser();
     const handleSubmit = async (e) => {
         e.preventDefault();
       
@@ -26,7 +28,8 @@ const LoginForm = () => {
       
           if (response.data.id) {
             // Si la réponse contient un id, cela signifie que l'utilisateur est authentifié
-            navigate('/admPage' , { state: response.data });  // Rediriger vers la page Admin
+            setUser(response.data);
+            navigate('/admPage/Dashboard');  // Rediriger vers la page Admin
           } else {
             // Si la réponse ne contient pas d'id, c'est que l'authentification a échoué
             setError('Identifiants incorrects');
@@ -36,6 +39,7 @@ const LoginForm = () => {
           setError('Erreur lors de la connexion');
         }
       };
+    
       
       
   

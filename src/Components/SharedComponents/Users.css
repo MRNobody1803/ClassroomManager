@@ -86,14 +86,22 @@
   }
 
   .modal form {
-    padding: 10px 20px ;
+    padding: 10px 30px ;
   }
 
   .modal form input {
     width: 100% ;
     height: 35px;
     margin-bottom: 4px;
-    border-radius: 15px ;
+    border-radius: 10px ;
+    padding-left: 15px;
+
+  }
+  .modal form select {
+    width:  100% ;
+    height: 35px;
+    margin-bottom: 4px;
+    border-radius: 10px ;
     padding-left: 15px;
 
   }

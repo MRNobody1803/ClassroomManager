@@ -1,23 +1,21 @@
 import React, { createContext, useState, useContext } from 'react';
 
-// Créez un contexte pour l'utilisateur
-const UserContext = createContext();
-
-export const useUser = () => {
-  return useContext(UserContext);
-};
+const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(null);  // Initialiser l'état de l'utilisateur
-
-  // Mettre à jour les données de l'utilisateur
-  const setUserData = (userData) => {
-    setUser(userData);
-  };
+  const [user, setUser] = useState(null);
 
   return (
-    <UserContext.Provider value={{ user, setUserData }}>
+    <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
   );
+};
+
+export const useUser = () => {
+  const context = useContext(UserContext);
+  if (!context) {
+    throw new Error('useUser must be used within a UserProvider');
+  }
+  return context;
 };
