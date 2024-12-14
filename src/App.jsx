@@ -10,13 +10,13 @@ import { UserProvider } from './Components/SharedComponents/UserContext';
 import ProfPage from './Components/Pages/ProfPage';
 import FieldCPage from './Components/Pages/FieldCPage';
 import FieldsManagement from './Components/SharedComponents/FieldsManagement';
-import ScheduleManagement from './Components/Pages/ScheduleManagement';
+import RespClassPage from './Components/Pages/RespClassPage';
 
 function App() {
   return (
-    <Router>
-       <ProfPage/>
-    </Router>
+
+       <RespClassPage/>
+
   
   );
 }
