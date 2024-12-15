@@ -11,7 +11,7 @@ const Room = () => {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/Back-end-1.0-SNAPSHOT/api/salles');
+        const response = await axios.get('http://localhost:8080/PROJET_JEE_REST_war_exploded/api/salles');
         setRooms(response.data); // Store the room data
         setLoading(false); // Set loading to false once data is fetched
       } catch (err) {
@@ -53,7 +53,7 @@ const Room = () => {
       const newStatus = roomToModify.status === 'AVAILABLE' ? 'BLOCKED' : 'AVAILABLE';
       
       // Send the new status to the server (modify this URL according to your API)
-      await axios.put(`http://localhost:8080/Back-end-1.0-SNAPSHOT/api/salles/${roomId}`, {
+      await axios.put(`http://localhost:8080/PROJET_JEE_REST_war_exploded/api/salles/${roomId}`, {
         ...roomToModify,
         status: newStatus,
       });

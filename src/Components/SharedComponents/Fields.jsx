@@ -12,7 +12,7 @@ export const Fields = () => {
     const fetchFields = async () => {
       try {
         // Fetch fields data
-        const response = await axios.get('http://localhost:8080/Back-end-1.0-SNAPSHOT/api/filieres');
+        const response = await axios.get('http://localhost:8080/PROJET_JEE_REST_war_exploded/filieres');
         
         if (response.data && Array.isArray(response.data)) {
           setFields(response.data);  // Set the fields data
@@ -21,7 +21,7 @@ export const Fields = () => {
           const updatedFields = await Promise.all(response.data.map(async (field) => {
             try {
               // Fetch the coordinator for each field
-              const MgField = await axios.get(`http://localhost:8080/Back-end-1.0-SNAPSHOT/api/utilisateurs/${field.responsableId}`);
+              const MgField = await axios.get(`http://localhost:8080/PROJET_JEE_REST_war_exploded/utilisateurs/${field.responsableId}`);
               field.fieldManager = MgField.data ? `${MgField.data.nom} ${MgField.data.prenom}` : 'Not Available';  // Set the coordinator name
               return field;  // Return updated field with coordinator data
             } catch (err) {

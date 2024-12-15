@@ -32,7 +32,7 @@ const Users = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:8080/Back-end-1.0-SNAPSHOT/api/utilisateurs', newUser);
+      const response = await axios.post('http://localhost:8080/PROJET_JEE_REST_war_exploded/api/utilisateurs', newUser);
       
       // Si l'utilisateur a été créé, on l'ajoute à la liste des utilisateurs
       if (response.data.id) {
@@ -64,7 +64,7 @@ const Users = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/Back-end-1.0-SNAPSHOT/api/utilisateurs');
+        const response = await axios.get('http://localhost:8080/PROJET_JEE_REST_war_exploded/api/utilisateurs');
         setUsers(response.data);
         setLoading(false);
       } catch (err) {
@@ -94,7 +94,7 @@ const Users = () => {
       try {
         // Effectuer la suppression de chaque utilisateur sélectionné
         for (let userId of selectedUsers) {
-          const response = await axios.delete(`http://localhost:8080/Back-end-1.0-SNAPSHOT/api/utilisateurs/${userId}`);
+          const response = await axios.delete(`http://localhost:8080/PROJET_JEE_REST_war_exploded/api/utilisateurs/${userId}`);
           
           // Si la suppression a réussi, on met à jour la liste des utilisateurs
           if (response.status === 200) {

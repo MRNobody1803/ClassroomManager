@@ -6,21 +6,21 @@
     padding: 10px ;
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.306)  ;
 }
-nav {
+.navigationAdm nav {
     width: 100% ;
     padding : 5px ;
     display: flex ;
     justify-content: space-between;
     align-items: center ;
 }
-.navbarrAdm ul li {
+.navigationAdm .navbarrAdm ul li {
     list-style-type: none;
     display: inline-block;
     margin : 1rem  1rem; 
 
 }
 
-.navbarrAdm ul li a {
+.navigationAdm .navbarrAdm ul li a {
     color: var(--lightmode);
     font-weight: 400;
     text-decoration: none ;
@@ -32,7 +32,7 @@ nav {
     font-weight: 400;
 }
 
-.navbarrAdm ul li a:hover {
+.navigationAdm .navbarrAdm ul li a:hover {
     background-color: rgba(235, 229, 229, 0.274) ;
     transition: 0.5s ;
 }

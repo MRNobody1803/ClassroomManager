@@ -15,12 +15,8 @@ import FieldsManagement from '../SharedComponents/FieldsManagement';
 const AdmPage = () => {
   const { user } = useUser();
 
-  // Fallback if user is null
-  const userName = user?.nom && user?.prenom 
-    ? `${user.nom} ${user.prenom}` 
-    : 'Utilisateur';
+  const userName = user?.nom && user?.prenom ? `${user.nom} ${user.prenom}` : 'Utilisateur';
 
-  // Vérifier si le nom et prénom existent avant de les afficher
   const buttonNames = [
     { label: 'DashBoard', path: '/admPage/dashboard' },
     { label: 'Users', path: '/admPage/users' },

@@ -18,10 +18,10 @@ const DashBoard = () => {
   useEffect(() => {
     const fetchStatistics = async () => {
       try {
-        const fieldsResponse = await axios.get('http://localhost:8080/Back-end-1.0-SNAPSHOT/api/filieres');
-        const roomsResponse = await axios.get('http://localhost:8080/Back-end-1.0-SNAPSHOT/api/salles');
-        const professorsResponse = await axios.get('http://localhost:8080/Back-end-1.0-SNAPSHOT/api/utilisateurs?typeUser=PROFESSOR');
-        const activeUsersResponse = await axios.get('http://localhost:8080/Back-end-1.0-SNAPSHOT/api/utilisateurs');
+        const fieldsResponse = await axios.get('http://localhost:8080/PROJET_JEE_REST_war_exploded/api/filieres');
+        const roomsResponse = await axios.get('http://localhost:8080/PROJET_JEE_REST_war_exploded/api/salles');
+        const professorsResponse = await axios.get('http://localhost:8080/PROJET_JEE_REST_war_exploded/api/utilisateurs?typeUser=PROFESSOR');
+        const activeUsersResponse = await axios.get('http://localhost:8080/PROJET_JEE_REST_war_exploded/api/utilisateurs');
 
         setStatistics({
           fieldsCount: fieldsResponse.data.length,
