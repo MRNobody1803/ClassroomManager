@@ -1,0 +1,39 @@
+.proftimetable {
+  padding: 20px 40px ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.proftimetable .tab table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    cursor: pointer;
+  }
+  .proftimetable  .tables {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligne à gauche pour maximiser l'espace */
+    overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
+    margin-top: 20px;
+  }
+  
+  .proftimetable .tab table td div {
+    width: 100% ;
+    font-size: 12px;
+    text-align: left;
+  }
+  
+  .proftimetable .tab table td .reserved div {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .proftimetable .tables {
+    width: 100%; /* Faire en sorte que les tables prennent 90% de la largeur de la page */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: auto; /* Pour que la table soit défilable horizontalement si nécessaire */
+    margin-top: 20px;
+  }

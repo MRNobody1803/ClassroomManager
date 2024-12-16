@@ -1,0 +1,88 @@
+.reservation-management-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .reservations-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .reservation-management-container .reservation-card {
+    width: 50%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .reservation-management-container .reservation-actions button {
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .reservation-actions button:hover {
+    background-color: #2980b9;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal input, .modal select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .modal-actions button {
+    padding: 10px 20px;
+    background-color: #70c6ff;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  
+  .modal-actions button:hover {
+    background-color: #2980b9;
+  }
+  
+  .modal-actions button[type="button"] {
+    background-color: #e74c3c;
+  }
+  
+  .modal-actions button[type="button"]:hover {
+    background-color: #c0392b;
+  }
+  

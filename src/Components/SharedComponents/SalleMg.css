@@ -1,0 +1,122 @@
+.styled-select {
+    width: 100%; /* Adjust the width */
+    padding: 8px 12px; /* Add padding for a better look */
+    border: 2px solid #ccc; /* Border style */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #f9f9f9; /* Background color */
+    font-size: 16px; /* Font size */
+    color: #333; /* Text color */
+    outline: none; /* Remove outline on focus */
+    transition: border-color 0.3s ease; /* Smooth border transition */
+    margin-bottom: 30px ;
+  }
+  
+  .styled-select:focus {
+    border-color: #007BFF; /* Highlight border on focus */
+    background-color: #fff; /* Change background color on focus */
+  }
+
+select {
+    margin-top: 5px ;
+}
+.room {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .room .nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .room .nav ul li {
+    padding: 10px 10px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 5px 5px 0 0;
+    margin-right: 10px;
+    background-color: #f4f4f4;
+    transition: all 0.3s ease;
+  }
+  
+  
+  .room .nav ul li.active {
+    background-color: white;
+    border-color: #ddd;
+    border-bottom: none;
+    font-weight: bold;
+  }
+  
+  .room .tab-content {
+    border: 1px solid #ddd;
+    border-radius: 0 5px 5px 5px;
+    padding: 20px ;
+    background-color: white;
+    margin-top: -1px;
+  }
+  
+  .room table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .room table th, table td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .room table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .room table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .room table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .room button {
+    width: 150px ;
+    height: 35px ;
+    padding: 5px 10px;
+    background-color: #00313d;
+    color: white;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .room button:hover {
+    background-color: #0056b3;
+  }
+  
+
+
+  form {
+    display: block ;
+  }
+  .delete-button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .delete-button:hover {
+    background-color: #c9302c;
+  }
+  

@@ -1,0 +1,211 @@
+
+.addreservation {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 92vh; /* Prend toute la hauteur de la page */
+}
+
+
+.head {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+.head input {
+  width: 300px;
+  padding: 8px;
+  border-radius: 35px;
+  border: 1px solid #ccc;
+}
+
+
+
+.pot {
+  width: 100%; /* Prendre toute la largeur disponible */
+  margin-bottom: 50px;
+}
+
+
+.room-name {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+
+.tab {
+  width: 100%;
+}
+
+
+.tab table {
+  width: 100%; /* Table prend toute la largeur disponible */
+  border-collapse: collapse;
+  table-layout: fixed; /* Empêche que la table se déforme si le contenu est trop large */
+}
+
+
+
+.tab table th, .tab table td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+
+.tab table th {
+  background-color: #f4f4f4;
+  color: #555;
+  font-weight: 600;
+}
+
+
+.tab table td {
+  cursor: pointer;
+
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tab table td:hover {
+  background-color: 
+  #f0f0f0; /* Légère couleur de survol */
+  transform: scale(1.05);
+}
+
+
+.available {
+  background-color: #d6ffd6; /* Vert très pâle */
+  color: #181818;
+}
+
+
+.addreservation .reserved {
+  background-color: #ffdddd; /* Gris clair */
+  color: #1f1f1f;
+}
+
+
+.addreservation .tab table td div {
+  font-size: 12px;
+  text-align: left;
+}
+
+
+.addreservation .tab table td .reserved div {
+
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+
+/* Style pour les messages d'alerte */
+.addreservation .no-room-message {
+  text-align: center;
+  color: #dc3545;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 30px ;
+
+}
+
+
+/* Modal pour ajouter une réservation */
+.addreservation .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.addreservation .modal {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.addreservation .modal h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+
+.addreservation .modal .form-group {
+  margin-bottom: 15px;
+}
+
+
+.addreservation .modal .form-group label {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+
+
+.modal 
+.form-group input,
+.modal .form-group select {
+  width: 100%;
+  height: 40px ;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+
+.addreservation .modal button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.addreservation .modal button:hover {
+  background-color: #2980b9;
+}
+
+
+.addreservation .modal button[type="button"] {
+  background-color: #002c50;
+}
+
+
+.addreservation .modal button[type="button"]:hover {
+  background-color: #006179 ;
+}
+
+.add-reservation-button {
+  width: 200px ;
+  height: 35px ;
+  border-radius: 15px ;
+  background-color: #00313d ;
+  font-size: 18px ;
+}
+
+.add-reservation-button:hover {
+  background-color: #006179 ;
+}

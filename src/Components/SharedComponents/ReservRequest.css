@@ -1,0 +1,21 @@
+.status-valid {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .status-rejected {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .status-in-progress {
+    color: orange;
+    font-weight: bold;
+  }
+  
+  .reservation-actions button {
+    margin: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  

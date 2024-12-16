@@ -1,0 +1,218 @@
+.fields-management {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .fields-management .nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .fields-management .nav ul li {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 5px 5px 0 0;
+    margin-right: 10px;
+    background-color: #f4f4f4;
+    transition: all 0.3s ease;
+  }
+  
+  .fields-management .nav ul li.active {
+    background-color: white;
+    border-color: #ddd;
+    border-bottom: none;
+    font-weight: bold;
+  }
+  
+  .fields-management .tab-content {
+    border: 1px solid #ddd;
+    border-radius: 0 5px 5px 5px;
+    padding: 20px;
+    background-color: white;
+    margin-top: -1px;
+  }
+  
+  .fields-management .stats {
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .fields-management .stats h2 {
+    margin-top: 0;
+    color: #333;
+  }
+  .home-content {
+    background-color: #555;
+    width: 100%;
+    height: 100%;
+  }
+  .fields-management .stats p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .fields-management table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .fields-management table th,
+  .fields-management table td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .fields-management table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .fields-management table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .fields-management table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .fields-management .level-section {
+    margin-top: 20px;
+  }
+  
+  .fields-management .level-section h3 {
+    margin-bottom: 10px;
+    color: #444;
+  }
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .action-buttons button {
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .action-buttons button:hover {
+    opacity: 0.9;
+  }
+  
+  .action-buttons button:first-child {
+    background-color: #007bff; /* Couleur bleue pour le bouton Modifier */
+  }
+  
+  .action-buttons button:first-child:hover {
+    background-color: #0056b3; /* Couleur plus foncée au survol */
+  }
+  
+  .action-buttons button:last-child {
+    background-color: #dc3545; /* Couleur rouge pour le bouton Supprimer */
+  }
+  
+  .action-buttons button:last-child:hover {
+    background-color: #a71d2a; /* Couleur plus foncée au survol */
+  }
+    
+  .fields {
+    padding: 20px;
+  }
+  
+  .add-button {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .add-button:hover {
+    background-color: #45a049;
+  }
+  
+  .table {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  button {
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #e53935;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"], button[type="button"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover, button[type="button"]:hover {
+    background-color: #45a049;
+  }

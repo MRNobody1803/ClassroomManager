@@ -25,10 +25,10 @@ const Users = () => {
       prenom,
       email,
       password,
-      codeProfesseur,     // Ce champ peut avoir une valeur
-      typeUser,           // Ce champ peut avoir une valeur
-      codeEtudiant: null, // Valeur explicite 'null' pour codeEtudiant
-      adminId: null,      // Valeur explicite 'null' pour adminId
+      codeProfesseur,    
+      typeUser,          
+      codeEtudiant: null, 
+      adminId: null,      
     };
 
     try {
@@ -40,7 +40,6 @@ const Users = () => {
         closeModal();
       }
     } catch (error) {
-      // Log détaillé de l'erreur
       if (error.response) {
         // L'API a renvoyé une réponse d'erreur (400, 500, etc.)
         console.error('Erreur lors de la création de l\'utilisateur:', error.response.data);
@@ -147,7 +146,6 @@ const Users = () => {
       <div className="nav">
         <ul>
           <li><a href="#" onClick={() => openModal('Add User')}>Add User</a></li>
-          <li><a href="#" onClick={() => openModal('Modify User')}>Modify User</a></li>
           <li><a href="#" onClick={handleDeleteSelected}>Delete User</a></li>
         </ul>
       </div>
