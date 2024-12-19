@@ -59,6 +59,7 @@
     background-color: #0056b3;
   }
   .buttons {
+    text-decoration: none ;
     display: flex ;
     padding : 15px ;
   }

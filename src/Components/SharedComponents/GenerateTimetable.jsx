@@ -1,5 +1,7 @@
 import React, { useState , useEffect } from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
+
 import "./GenerateTimetable.css";
 import getMatiereIdByName from './../Functions/getMatiereByName'
 import getRoomId from './../Functions/getRoomId'
@@ -246,9 +248,9 @@ const GenerateTimetable = ({ user }) => {
         <button className="save-button" onClick={handleSaveTimetable}>
           Save Timetable
         </button>
-        <button className="save-button" onClick={handleSaveTimetable}>
-          View Timetable
-        </button>
+        <Link to="/fieldcoordinatorPage/fieldtimetable" className="save-button">
+        View Timetable
+      </Link>
       </div>
     </div>
   );

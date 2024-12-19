@@ -111,7 +111,7 @@ table tr:hover {
   outline: none;
 }
 
- .add-module .add-button {
+ .add-module .add-button   {
   width: 50%  ;
   padding: 8px ;
   background-color: #006179;
@@ -121,6 +121,10 @@ table tr:hover {
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s ease;
+}
+
+.delete-button {
+  border-radius: 15px ;
 }
 
 .add-module .add-button:hover {
