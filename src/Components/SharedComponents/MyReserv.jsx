@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './MyReserv.css';
+import fetchRoomNameBySalleId from './../Functions/fetchRoomNameBySalleId'
 
 const MyReserv = ({user}) => {
   // Initialisation du state pour les réservations
@@ -11,21 +12,39 @@ const MyReserv = ({user}) => {
   // Fonction pour récupérer les réservations depuis l'API
   const fetchReservations = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/PROJET_JEE_REST_war_exploded/api/reservations/demandeur/${user.id}`);
-      const fetchedReservations = response.data.map((reservation, index) => ({
-        id: reservation.id,
-        reservationNumber: `Reservation number : ${index + 1}`,
-        reservationDate: formatReservationDate(reservation.jour, reservation.duree), 
-        createdDate: formatDate(reservation.dateCreation), 
-        room: mapSalleToRoom(reservation.salleId), 
-        session: mapDurationToSession(reservation.duree), 
-        status: mapStatus(reservation.status), 
-      }));
-      setReservations(fetchedReservations);
+      const response = await axios.get(
+        `http://localhost:8080/PROJET_JEE_REST_war_exploded/api/reservations/demandeur/${user.id}`
+      );
+  
+      const fetchedReservations = await Promise.all(
+        response.data.map(async (reservation, index) => {
+          const roomName = await fetchRoomNameBySalleId(reservation.salleId); // Appel API pour le nom de la salle
+          const sessionTime = mapDurationToSession(reservation.duree);
+          const reservationDate = formatReservationDate(reservation.jour, reservation.duree);
+  
+          return {
+            id: reservation.id,
+            reservationNumber: `Reservation number: ${index + 1}`,
+            reservationDate: reservationDate || "Date inconnue",
+            createdDate: formatDate(reservation.dateCreation),
+            room: roomName || "Salle inconnue",
+            session: sessionTime || "Session inconnue",
+            status: mapStatus(reservation.status),
+          };
+        })
+      );
+  
+      // Trier les réservations par date de création (plus récentes d'abord)
+      const sortedReservations = fetchedReservations.sort((a, b) =>
+        new Date(b.createdDate) - new Date(a.createdDate)
+      );
+  
+      setReservations(sortedReservations);
     } catch (error) {
       console.error("Erreur lors de la récupération des réservations:", error);
     }
   };
+  
 
   // Charger les réservations à chaque fois que le composant se monte
   useEffect(() => {
@@ -161,7 +180,20 @@ const handleUpdateReservation = async (e) => {
               <p>Creation Date: {reservation.createdDate}</p>
               <p>ClassRoom: {reservation.room}</p>
               <p>Session: {reservation.session}</p>
-              <p>Status: {reservation.status}</p>
+              <p>
+                <strong>Status:</strong>{' '}
+                <span
+                  className={
+                    reservation.status === 'RESERVATION VALID'
+                      ? 'status-valid'
+                      : reservation.status === 'NOT VALID'
+                      ? 'status-rejected'
+                      : 'status-in-progress'
+                  }
+                >
+                  {reservation.status}
+                </span>
+              </p>
               <div className="reservation-actions">
                 <button onClick={() => handleCancelReservation(reservation.id)}>Cancel</button>
               </div>
@@ -239,16 +271,18 @@ const handleUpdateReservation = async (e) => {
 // Fonction utilitaire pour formater la date de réservation
 const formatReservationDate = (jour, duree) => {
   const dayMapping = {
-    "MON": "2024-12-20",
-    "TUE": "2024-12-21",
-    // Ajouter les autres jours au besoin
+    MON: "Lundi",
+    TUE: "Mardi",
+    WED: "Mercredi",
+    THU: "Jeudi",
+    FRI: "Vendredi",
+    SAT: "Samedi",
   };
-
   const durationMapping = {
-    "EIGHT_THIRTY_TO_TEN_THIRTY": "8h30-10h30",
-    "TEN_THIRTY_TO_TWELVE_THIRTY": "10h30-12h30",
-    "FOUR_THIRTY_TO_SIX_THIRTY": "16h30-18h30",
-    // Ajouter d'autres horaires de durée
+    EIGHT_THIRTY_TO_TEN_THIRTY: "8h30 - 10h30",
+    TEN_THIRTY_TO_TWELVE_THIRTY: "10h30 - 12h30",
+    TWO_THIRTY_TO_FOUR_THIRTY: "14h30 - 16h30",
+    FOUR_THIRTY_TO_SIX_THIRTY: "16h30 - 18h30",
   };
 
   const date = dayMapping[jour];
@@ -266,13 +300,14 @@ const formatDate = (date) => {
 // Fonction pour mapper la durée à une session spécifique
 const mapDurationToSession = (duree) => {
   const durationMapping = {
-    "EIGHT_THIRTY_TO_TEN_THIRTY": "8h30-10h30",
-    "TEN_THIRTY_TO_TWELVE_THIRTY": "10h30-12h30",
-    "FOUR_THIRTY_TO_SIX_THIRTY": "16h30-18h30",
-    // Ajouter d'autres horaires de durée
+    EIGHT_THIRTY_TO_TEN_THIRTY: "8h30 - 10h30",
+    TEN_THIRTY_TO_TWELVE_THIRTY: "10h30 - 12h30",
+    TWO_THIRTY_TO_FOUR_THIRTY: "14h30 - 16h30",
+    FOUR_THIRTY_TO_SIX_THIRTY: "16h30 - 18h30",
   };
-  return durationMapping[duree];
+  return durationMapping[duree] || "Session inconnue";
 };
+
 
 // Fonction pour mapper l'ID de la salle à un nom de salle
 const mapSalleToRoom = (salleId) => {

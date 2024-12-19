@@ -16,7 +16,6 @@ const ProfTimetable = ({ user }) => {
     FOUR_THIRTY_TO_SIX_THIRTY: '16h30 - 18h30',
   };
 
-  // Fonction pour récupérer les données depuis l'API
   const fetchTimetableData = async () => {
     try {
       const response = await axios.get(
@@ -24,20 +23,22 @@ const ProfTimetable = ({ user }) => {
       );
       const fetchedData = await Promise.all(
         response.data.map(async (item) => {
-          const filiereResponse = await axios.get(
-            `http://localhost:8080/PROJET_JEE_REST_war_exploded/api/filieres/${item.filiereId}`
-          );
-          const salleResponse = await axios.get(
-            `http://localhost:8080/PROJET_JEE_REST_war_exploded/api/salles/${item.salleId}`
-          );
-          const matierResponse = await axios.get(
-            `http://localhost:8080/PROJET_JEE_REST_war_exploded/api/matieres/${item.matierId}`
-          );
+          // Initialisation des données par défaut
+          const filiereName = item.filiereId 
+            ? (await axios.get(`http://localhost:8080/PROJET_JEE_REST_war_exploded/api/filieres/${item.filiereId}`)).data.nom 
+            : 'N/A';
+          const salleName = item.salleId 
+            ? (await axios.get(`http://localhost:8080/PROJET_JEE_REST_war_exploded/api/salles/${item.salleId}`)).data.nom 
+            : 'N/A';
+          const matierName = item.matierId 
+            ? (await axios.get(`http://localhost:8080/PROJET_JEE_REST_war_exploded/api/matieres/${item.matierId}`)).data.name 
+            : 'N/A';
+
           return {
             ...item,
-            filiereName: filiereResponse.data.nom,
-            salleName: salleResponse.data.nom,
-            matierName : matierResponse.data.name
+            filiereName,
+            salleName,
+            matierName,
           };
         })
       );
@@ -47,7 +48,6 @@ const ProfTimetable = ({ user }) => {
     }
   };
 
-  // Calculer la plage de dates de la semaine actuelle
   const getWeekDates = (date) => {
     const startDate = new Date(date);
     const dayOfWeek = startDate.getDay() || 7; // Le lundi est 1 et le dimanche est 7
@@ -66,13 +66,12 @@ const ProfTimetable = ({ user }) => {
     return `${formatDate(startDate)} - ${formatDate(endDate)}`;
   };
 
-  // Utiliser l'effet pour charger les données au montage
   useEffect(() => {
     const today = new Date();
     const weekRange = getWeekDates(today);
     setCurrentWeekRange(weekRange);
 
-    fetchTimetableData(); // Charger les données depuis l'API
+    fetchTimetableData();
   }, []);
 
   const renderCellContent = (day, session) => {
@@ -83,10 +82,10 @@ const ProfTimetable = ({ user }) => {
     if (reservation) {
       return (
         <div>
-          <div><strong>Subject:</strong> {reservation.typeSeance}</div>
-          <div><strong>Field:</strong> {reservation.filiereName || 'N/A'}</div>
-          <div><strong>Room:</strong> {reservation.salleName || 'N/A'}</div>
-          <div><strong>Course Name:</strong> {reservation.matierName || 'N/A'}</div>
+          <div><strong>Subject:</strong> {reservation.typeSeance || 'N/A'}</div>
+          <div><strong>Field:</strong> {reservation.filiereName}</div>
+          <div><strong>Room:</strong> {reservation.salleName}</div>
+          <div><strong>Course Name:</strong> {reservation.matierName}</div>
         </div>
       );
     }

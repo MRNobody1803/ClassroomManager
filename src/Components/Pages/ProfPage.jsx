@@ -13,7 +13,7 @@ import FieldsManagement from '../SharedComponents/FieldsManagement';
 import AddResevation from '../SharedComponents/AddResevation';
 import ProfTimetable from '../SharedComponents/ProfTimetable';
 import MyReserv from '../SharedComponents/MyReserv';
-
+import './ProfPage.css'
 const ProfPage = () => {
     const { user } = useUser();
     
